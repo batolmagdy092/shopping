@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="shoppingsModelStoreContainer" CdmEntityContainer="shoppingsEntities">
+    <EntitySetMapping Name="Admin_">
+      <EntityTypeMapping TypeName="shoppingsModel.Admin_">
+        <MappingFragment StoreEntitySet="Admin_">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="name_" ColumnName="name_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="delivries">
+      <EntityTypeMapping TypeName="shoppingsModel.delivry">
+        <MappingFragment StoreEntitySet="delivry">
+          <ScalarProperty Name="id_" ColumnName="id_" />
+          <ScalarProperty Name="name_" ColumnName="name_" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="number_" ColumnName="number_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="shoppingsModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Userr_">
+      <EntityTypeMapping TypeName="shoppingsModel.Userr_">
+        <MappingFragment StoreEntitySet="Userr_">
+          <ScalarProperty Name="number_" ColumnName="number_" />
+          <ScalarProperty Name="name_" ColumnName="name_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

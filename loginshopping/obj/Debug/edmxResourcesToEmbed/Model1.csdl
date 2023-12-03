@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shoppingsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin_">
+    <Key>
+      <PropertyRef Name="number" />
+    </Key>
+    <Property Name="number" Type="Int32" Nullable="false" />
+    <Property Name="name_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="delivries" Relationship="Self.FK__delivry__number__4F7CD00D" FromRole="Admin_" ToRole="delivry" />
+  </EntityType>
+  <EntityType Name="delivry">
+    <Key>
+      <PropertyRef Name="id_" />
+    </Key>
+    <Property Name="id_" Type="Int32" Nullable="false" />
+    <Property Name="name_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="Int32" />
+    <Property Name="number_" Type="Int32" />
+    <NavigationProperty Name="Admin_" Relationship="Self.FK__delivry__number__4F7CD00D" FromRole="delivry" ToRole="Admin_" />
+    <NavigationProperty Name="Userr_" Relationship="Self.FK__delivry__number___5070F446" FromRole="delivry" ToRole="Userr_" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_code" />
+    </Key>
+    <Property Name="product_code" Type="Int32" Nullable="false" />
+    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Userr_">
+    <Key>
+      <PropertyRef Name="number_" />
+    </Key>
+    <Property Name="number_" Type="Int32" Nullable="false" />
+    <Property Name="name_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="delivries" Relationship="Self.FK__delivry__number___5070F446" FromRole="Userr_" ToRole="delivry" />
+  </EntityType>
+  <Association Name="FK__delivry__number__4F7CD00D">
+    <End Role="Admin_" Type="Self.Admin_" Multiplicity="0..1" />
+    <End Role="delivry" Type="Self.delivry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_">
+        <PropertyRef Name="number" />
+      </Principal>
+      <Dependent Role="delivry">
+        <PropertyRef Name="number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__delivry__number___5070F446">
+    <End Role="Userr_" Type="Self.Userr_" Multiplicity="0..1" />
+    <End Role="delivry" Type="Self.delivry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userr_">
+        <PropertyRef Name="number_" />
+      </Principal>
+      <Dependent Role="delivry">
+        <PropertyRef Name="number_" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="shoppingsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin_" EntityType="Self.Admin_" />
+    <EntitySet Name="delivries" EntityType="Self.delivry" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="Userr_" EntityType="Self.Userr_" />
+    <AssociationSet Name="FK__delivry__number__4F7CD00D" Association="Self.FK__delivry__number__4F7CD00D">
+      <End Role="Admin_" EntitySet="Admin_" />
+      <End Role="delivry" EntitySet="delivries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__delivry__number___5070F446" Association="Self.FK__delivry__number___5070F446">
+      <End Role="Userr_" EntitySet="Userr_" />
+      <End Role="delivry" EntitySet="delivries" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
